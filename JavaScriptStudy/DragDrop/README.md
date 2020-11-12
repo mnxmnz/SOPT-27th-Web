@@ -1,0 +1,1 @@
+#### :open_file_folder: 참고: [Drag & Drop With Vanilla JS](https://www.youtube.com/watch?v=C22hQKE_32c)

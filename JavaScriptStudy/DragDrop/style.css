@@ -1,0 +1,35 @@
+body {
+    background-color: lightgreen;
+}
+
+.fill {
+    background-image: url(./img/img.jpg);
+    position: relative;
+    height: 150px;
+    width: 150px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+}
+
+.empty {
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    margin: 10px;
+    border: 3px green solid;
+    background-color: white;
+}
+
+.hold {
+    border: 4px black solid;
+}
+
+.hovered {
+    background-color: lightgray;
+    border-style: dashed;
+}
+
+.invisible {
+    display: none;
+}
