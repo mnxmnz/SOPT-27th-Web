@@ -2,7 +2,7 @@ import React from "react";
 import { DeleteOutlined, FileImageOutlined } from "@ant-design/icons";
 import './Card.scss';
 
-const Card = () => {
+const Card = ({ route, memberData, onRemoveCard }) => {
     return (
         <div className="card" onClick={() => route.history.push(`${route.match.path}/${memberData.id}`)} draggable>
             <div className="remove-button" onClick={onRemoveCard}>
