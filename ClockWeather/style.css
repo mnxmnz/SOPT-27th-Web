@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap");
+
+* {
+    box-sizing: border-box;
+    font-family: "Gothic A1", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background-color: lightsteelblue;
+    color: black;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+.clock {
+    background-color: lightcyan;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    height: 85px;
+    padding: 10px 20px;
+    position: relative;
+    width: 250px;
+}
+
+.clock::before {
+    background-color: lightseagreen;
+    border-radius: 10px 10px 0 0;
+    content: "";
+    height: 5px;
+    left: 50%;
+    position: absolute;
+    top: -5px;
+    transform: translateX(-50%);
+    width: 50%;
+}
+
+.clock .clock-body {
+    background-color: lightskyblue;
+    border-radius: 10px;
+    display: flex;
+    height: 100%;
+    padding: 0 15px;
+    position: relative;
+    width: 100%;
+}
+
+.clock .clock-body::before {
+    background-color: darkturquoise;
+    border-radius: 0 0 5px 5px;
+    bottom: -19px;
+    content: "";
+    height: 9px;
+    left: 14px;
+    position: absolute;
+    width: 20px;
+}
+
+.clock .clock-body::after {
+    background-color: darkturquoise;
+    border-radius: 0 0 5px 5px;
+    bottom: -19px;
+    content: "";
+    height: 9px;
+    position: absolute;
+    right: 14px;
+    width: 20px;
+}
+
+.clock .clock-body>div {
+    color: white;
+    font-size: 60px;
+    letter-spacing: 6px;
+    line-height: 1.2;
+}
