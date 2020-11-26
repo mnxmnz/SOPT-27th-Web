@@ -11,13 +11,14 @@ SOPT 27기 웹 파트 세미나(+ JavaScript 스터디) 실습 및 과제 코드
 | [2020.10.30] 2차 과제 | [Vanilla JS - DarkMode 🌙](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/DarkMode) |
 | [2020.10.30] 2차 과제 | [Vanilla JS - ImgSlider 🎞](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/ImgSlider) |
 | [2020.10.31] 3차 실습 | [React - GitHub Profile Finder 🔍](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/React-Github-Profile-Finder) 
-| [2020.11.07] 4차 실습 | [React - Notion Web Part Page 📝](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/React-Notion) |
+| [2020.12.04] 5차 실습 | [React - Notion Web Part Page 📝](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/react-notion) |
 
 ### JavaScript Study ✍
 
 | Date | Project |
 | --- | --- |
 | [2020.11.12] 2차 과제 | [Vanilla JS - Drag & Drop 🖼](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/DragDrop) |
-| [2020.11.26] 4차 과제 | [Vanilla JS - Clock Weather ⏱🌞](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/ClockWeather) |
+| [2020.11.26] 4차 과제 | [Vanilla JS - Clock ⏱](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/Clock) |
+| [2020.11.26] 4차 과제 | [Vanilla JS - Weather 🌞](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/Weather) |
 
 #### 🔗 [SOPT](http://sopt.org/wp/)
