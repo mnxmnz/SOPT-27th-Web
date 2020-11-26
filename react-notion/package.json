@@ -1,14 +1,20 @@
 {
-  "name": "react-notion",
+  "name": "sopt_27th_web_4th",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@ant-design/icons": "^4.2.2",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "antd": "^4.8.0",
+    "axios": "^0.21.0",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "sass-loader": "^10.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -34,13 +40,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@ant-design/icons": "^4.2.2",
-    "antd": "^4.8.2",
-    "axios": "^0.21.0",
-    "node-sass": "^4.14.1",
-    "react-router-dom": "^5.2.0",
-    "sass-loader": "^10.0.5"
   }
 }

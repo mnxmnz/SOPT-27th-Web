@@ -1,12 +1,11 @@
-import React from "react";
-import "./Button.scss";
+import './Button.scss';
 
-const Button = ({ text, textColor = "#444", onClickFunc }) => {
+function Button({ text, textColor = '#444', onClickFunc }) {
     return (
         <span className="button" style={{ color: textColor }} onClick={onClickFunc}>
             {text}
         </span>
     );
-};
+}
 
 export default Button;

@@ -1,33 +1,53 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import Loading from "../../components/loading/Loading";
-import Button from "../../components/button/Button";
-import Card from "../../components/card/Card";
-import { getMembersAPI } from "../../lib/api/memberAPI";
-import "./MemberList.scss";
+import './MemberList.scss'
+import Button from '../../components/button/Button';
+import Card from '../../components/card/Card';
+import { useEffect, useState } from 'react';
+import Loading from '../../components/loading/Loading';
 
-const MemberList = ({ history, match }) => {
-    const [members, setMembers] = useState([]);
-    const [loading, setLoading] = useState(true);
+import { getMembers, createMember } from '../../lib/api/memberAPI';
+
+function MemberList({ history, match }) {
+    const [ membersState, setMembersState ] = useState({
+        members: null,
+        status: 'idle',
+    });
 
     useEffect(() => {
         (async () => {
-            const result = await getMembersAPI();
-            setMembers(result);
-            setTimeout(() => setLoading(false), 800); // 테스트용으로 setTimeout을 실행!
+            setMembersState({ members: null, status: 'pending' });
+            try {
+                const result = await getMembers();
+                setTimeout(() => setMembersState({ members: result, status: 'resolved' }), 800);
+            } catch (e) {
+                setMembersState({ members: null, status: 'rejected' });
+            }
         })();
     }, []);
 
-    const removeCard = (evt) => {
-        evt.stopPropagation();
-        console.log("REMOVE CARD!!");
-    };
+    const onClickCreateCard = async () => {
+        try {
+            const data = await createMember({
+                name: '',
+                profileUrl: '',
+                instagram: '',
+                introduction: '',
+                mbti: '',
+            });
+            setMembersState({
+                status: 'resolved',
+                members: [...membersState.members, data]
+            });
+        } catch (e) {
+            // fail
+        }
+    }
 
-    switch (loading) {
-        case true:
+    switch (membersState.status) {
+        case 'pending':
             return <Loading />;
-
-        default:
+        case 'rejected':
+            return <div>데이터 로딩 실패</div>;
+        case 'resolved':
             return (
                 <div className="member-list">
                     <div className="member-list__title">파트원 소개</div>
@@ -42,13 +62,20 @@ const MemberList = ({ history, match }) => {
                     </div>
                     <hr />
                     <div className="member-list-content-wrapper">
-                        {members.map((member, i) => (
-                            <Card key={"card-" + i} route={{ history, match }} memberData={member} onRemoveCard={removeCard} />
-                        ))}
+                        {membersState.members.map((member, i) =>
+                            <Card key={"card-" + i} memberData={member}
+                                onDeleteCard={ () => setMembersState({
+                                    status: 'resolved',
+                                    members: membersState.members.filter(mem => mem.id !== member.id)
+                                })}/>)}
+                        <div className="create-card" onClick={ onClickCreateCard }>+ New</div>
                     </div>
                 </div>
             );
+        case 'idle':
+        default:
+            return <div></div>
     }
-};
+}
 
 export default MemberList;

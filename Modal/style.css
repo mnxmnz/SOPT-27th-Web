@@ -10,6 +10,10 @@
     display: none;
 }
 
+#modal-title {
+    text-align: center;
+}
+
 #modal-contents {
     width: 300px;
     height: 200px;
@@ -20,5 +24,7 @@
 }
 
 #modal-close {
+    display: flex;
     float: right;
+    margin-top: 60px;
 }

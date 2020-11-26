@@ -1,41 +1,49 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { getMemberAPI } from "../../lib/api/memberAPI";
-import Button from "../../components/button/Button";
-import Loading from "../../components/loading/Loading";
-import { Input } from "antd";
-import { InstagramOutlined, AlignLeftOutlined, RadarChartOutlined } from "@ant-design/icons";
-import "./MemberDetail.scss";
+import './MemberDetail.scss';
 
-const MemberDetail = ({ match }) => {
-    const [memberState, setMemberState] = useState({
-        status: "idle",
-        member: null,
+import { useState, useEffect } from 'react';
+
+import Button from '../../components/button/Button';
+import Loading from '../../components/loading/Loading';
+
+import { InstagramOutlined, AlignLeftOutlined, RadarChartOutlined } from '@ant-design/icons';
+import memberAPI from '../../lib/api/memberAPI';
+
+function MemberDetail({ match }) {
+    const [ memberState, setMemberState ] = useState({
+        status: 'idle',
+        member: null
     });
-
     useEffect(() => {
         (async () => {
             try {
-                setMemberState({ status: "pending", member: null });
-                const result = await getMemberAPI(match.params.id);
-                console.log(result);
-                setTimeout(() => setMemberState({ status: "resolved", member: result }), 600);
+                setMemberState({ status: 'pending', member: null });
+                const data = await memberAPI.getMember(match.params.id);
+                setMemberState({ status: 'resolved', member: data });
             } catch (e) {
-                setMemberState({ status: "rejected", member: null });
+                setMemberState({ status: 'rejected', member: null});
             }
         })();
-    }, []);
-
-    const onChangeInputs = (evt) => {
+    }, [match.params.id]);
+    
+    const onChangeInputs = async (evt) => {
         const { name, value } = evt.target;
-        setMemberState({
-            status: "resolved",
-            member: {
+        try {
+            await memberAPI.updateMember(match.params.id, {
                 ...memberState.member,
                 [name]: value,
-            },
-        });
-    };
+            });
+            setMemberState({
+                status: 'resolved',
+                member: {
+                    ...memberState.member,
+                    [name]: value,
+                }
+            });
+        } catch (e) {
+            console.error(e);
+        }
+        
+    }
 
     const memberElement = () => (
         <div className="member-detail">
@@ -43,43 +51,37 @@ const MemberDetail = ({ match }) => {
                 <Button text="Add icon"></Button>
                 <Button text="Add cover"></Button>
             </div>
-            <div className="member-detail__content name"> {memberState.member.name} </div>
-            <hr style={{ borderTop: "solid 1px #eee", marginBottom: "24px" }} />
+            <input className="member-detail__content name" name="name" value={memberState.member.name} onChange={ onChangeInputs }/>
+            <hr style={{borderTop: "solid 1px #eee", marginBottom: "24px"}}/>
             <div className="member-detail__content">
-                <div className="content-title">
-                    <InstagramOutlined />
-                    &nbsp; 인스타 아이디
-                </div>
-                <Input className="content-input" bordered={false} name="instagram" value={memberState.member.instagram} onChange={onChangeInputs} />
+                <div className="content-title"><InstagramOutlined />&nbsp; 인스타 아이디</div>
+                <input className="content-input" name="instagram" value={memberState.member.instagram} onChange={ onChangeInputs }/>
             </div>
             <div className="member-detail__content">
-                <div className="content-title">
-                    <AlignLeftOutlined />
-                    &nbsp; 한 줄 소개
-                </div>
-                <Input className="content-input" bordered={false} name="introduction" value={memberState.member.introduction} onChange={onChangeInputs} />
+                <div className="content-title"><AlignLeftOutlined />&nbsp; 한 줄 소개</div>
+                <input className="content-input" name="introduction" value={memberState.member.introduction} onChange={ onChangeInputs }/>
             </div>
             <div className="member-detail__content">
-                <div className="content-title">
-                    <RadarChartOutlined />
-                    &nbsp; mbti
-                </div>
-                <Input className="content-input" bordered={false} name="mbti" value={memberState.member.mbti} onChange={onChangeInputs} />
+                <div className="content-title"><RadarChartOutlined />&nbsp; mbti</div>
+                <input className="content-input" name="mbti" value={memberState.member.mbti} onChange={ onChangeInputs }/>
+            </div>
+            <div className="member-detail__content">
+                { memberState.member.profileUrl !== '' ? <img className="content-image" src={memberState.member.profileUrl} alt={'profile url'} /> : '' }
             </div>
         </div>
     );
 
     switch (memberState.status) {
-        case "pending":
+        case 'pending':
             return <Loading />;
-        case "resolved":
-            return memberElement();
-        case "rejected":
+        case 'rejected':
             return <h1>해당 멤버가 없습니다</h1>;
-        case "idle":
-        default:
-            return <div></div>;
+        case 'resolved':
+            return memberElement();
+        case 'idle':
+        default: 
+            return <div></div>
     }
-};
+}
 
 export default MemberDetail;

@@ -1,5 +1,7 @@
 body {
     background-color: lightgreen;
+    display: flex;
+    text-align: center;
 }
 
 .fill {
