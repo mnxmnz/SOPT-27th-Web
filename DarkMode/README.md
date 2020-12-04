@@ -1,5 +1,5 @@
-## Vanilla JS - Clock ⏱
+## Vanilla JS - DarkMode ⏱
 
-JavaScript Study 3차 과제 <b>Clock ⏱</b> 폴더입니다.
+Web Part Seminar 2차 과제 <b>DarkMode 🌙</b> 폴더입니다.
 
 #### :open_file_folder: 참고: [⏰JavaScript Digital Clock | Vanilla JavaScript Project Tutorial | Web Development Tutorial 2020.](https://www.youtube.com/watch?v=QyvxrrWBl00)

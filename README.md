@@ -22,6 +22,6 @@ SOPT 27기 웹 파트 세미나(+ JavaScript 스터디) 실습 및 과제 코드
 | [2020.11.12] 2차 과제 | [Vanilla JS - Drag & Drop 🖼](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/DragDrop) |
 | [2020.11.19] 3차 과제 | [Vanilla JS - Clock ⏱](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/Clock) |
 | [2020.11.26] 4차 과제 | [Vanilla JS - Weather 🌞](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/Weather) |
-| [2020.12.10] 4차 과제 | [Vanilla JS - To-do List 🖋](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/TodoList) |
+| [2020.12.10] 5차 과제 | [Vanilla JS - To-do List 🖋](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/TodoList) |
 
 #### 🔗 [SOPT](http://sopt.org/wp/)

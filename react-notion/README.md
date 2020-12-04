@@ -1,3 +1,3 @@
-# Web Part Notion App 만들기
+## React - Notion Web Part Page 📝
 
-SOPT Web Part 4차 세미나 실습 자료
+Web Part Seminar 4차 & 6차 과제 <b>Notion Web Part Page 📝</b> 폴더입니다.
