@@ -3,15 +3,17 @@
     height: 45px;
     padding: 12px;
     font-size: 14px;
+
     .empty {
         flex: 1;
     }
-    &-icon {
+
+    &__icon {
         height: 100%;
         margin-right: 12px;
     }
+
     &__nav {
-    }
-    .right-content {
+        display: flex;
     }
 }

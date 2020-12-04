@@ -4,7 +4,6 @@ import axios from 'axios';
 const url = 'http://ec2-13-124-127-8.ap-northeast-2.compute.amazonaws.com:3000/api/members';
 
 const getMembers = async () => {
-    // http://ec2-13-124-127-8.ap-northeast-2.compute.amazonaws.com:3000/api/members
     try {
         const { data } = await axios.get(`${url}`);
         console.log('[SUCCESS] GET MEMBERS', data);
@@ -26,6 +25,17 @@ const getMember = async (id) => {
     }
 };
 
+const createMember = async (object) => {
+    try {
+        const { data } = await axios.post(`${url}`, object);
+        console.log('[SUCCESS] CREATE MEMBER', data);
+        return data.data;
+    } catch (e) {
+        console.log('[FAIL] CREATE MEMBER', e);
+        throw e;
+    }
+}
+
 const updateMember = async (id, member) => {
     try {
         const { data } = await axios.put(`${url}/${id}`, member);
@@ -37,18 +47,7 @@ const updateMember = async (id, member) => {
     }
 }
 
-const createMember = async (member) => {
-    try {
-        const { data } = await axios.post(`${url}`, member);
-        console.log('[SUCCESS] CREATE MEMBER', data);
-        return data.data;
-    } catch (e) {
-        console.log('[FAIL] CREATE MEMBER', e);
-        throw e;
-    }
-}
-
-const deleteMember = async (id) => {
+const removeMember = async (id) => {
     try {
         const { data } = await axios.delete(`${url}/${id}`);
         console.log('[SUCCESS] DELETE MEMBER', data);
@@ -64,9 +63,9 @@ const memberAPI = {
     getMember,
     updateMember,
     createMember,
-    deleteMember,
+    removeMember,
 }
 
 export default memberAPI;
-export { getMember, getMembers, updateMember, createMember, deleteMember };
+export { getMembers, getMember, createMember, updateMember, removeMember };
 

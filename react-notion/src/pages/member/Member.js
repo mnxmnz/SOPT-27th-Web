@@ -4,7 +4,7 @@ import MemberDetail from './MemberDetail';
 
 function Member({ match }) {
     return (
-        <section style={{margin: "0 90px"}}>
+        <section>
             <Switch>
                 <Route exact path={match.path} component={MemberList} />
                 <Route path={`${match.path}/:id`} component={MemberDetail}/>
