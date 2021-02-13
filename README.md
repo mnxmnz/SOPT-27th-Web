@@ -16,7 +16,7 @@
 | [2020.10.30] 2차 과제 | [Vanilla JS - ImgSlider 🎞](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/ImgSlider) |
 | [2020.11.06] 3차 과제 | [React - GitHub Profile Finder 🔍](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/React-Github-Profile-Finder) 
 | [2020.11.13] 4차 과제 | [React - Notion Web Part Page [1] 📝](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/react-notion) |
-| [2020.12.04] 5차 과제 | [React - Netflix Clone 📽](https://github.com/jaeseongDev/Soflix) |
+| [2020.12.04] 5차 과제 | [React - Netflix Clone 📽](https://github.com/mnxmnz/Netflix-Clone) |
 | [2020.12.04] 6차 과제 | [React - Notion Web Part Page [2] 📝](https://github.com/mnxmnz/SOPT-Web-Part/tree/master/react-notion) |
 
 ### JavaScript Study ✍
